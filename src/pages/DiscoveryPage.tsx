@@ -86,7 +86,7 @@ export default function DiscoveryPage() {
   };
 
   return (
-    <div className="h-full flex flex-col bg-white">
+    <div className="h-full flex flex-col md:flex-row bg-white">
       {/* Map Container */}
       <div className="flex-1 relative">
         <MapContainer
@@ -120,11 +120,10 @@ export default function DiscoveryPage() {
               key={chip.id}
               onClick={() => handleCategoryClick(chip.id)}
               whileTap={{ scale: 0.95 }}
-              className={`px-4 py-2 rounded-full font-medium text-white whitespace-nowrap transition-all ${
-                selectedCategory === chip.id
+              className={`px-4 py-2 rounded-full font-medium text-white whitespace-nowrap transition-all ${selectedCategory === chip.id
                   ? `${chip.color} scale-105 shadow-lg`
                   : 'bg-gray-700 hover:bg-gray-800'
-              }`}
+                }`}
             >
               {chip.label}
             </motion.button>
@@ -132,31 +131,51 @@ export default function DiscoveryPage() {
         </motion.div>
       </div>
 
-      {/* Info Section */}
+      {/* Info Section - Side Panel on Desktop, Bottom on Mobile */}
       <motion.div
-        className="border-t border-gray-200 p-4 bg-gray-50"
-        initial={{ y: 20, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
+        className="w-full md:w-80 border-t md:border-t-0 md:border-l border-gray-200 p-6 bg-gray-50 overflow-y-auto"
+        initial={{ x: 20, opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
         transition={{ delay: 0.2 }}
       >
-        <h2 className="text-lg font-bold text-gray-900 mb-3">
+        <h2 className="text-xl font-bold text-gray-900 mb-6">
           Discover Nearby Chefs
         </h2>
-        <div className="grid grid-cols-3 gap-3">
-          <div className="text-center">
-            <div className="text-2xl mb-1">👨‍🍳</div>
-            <p className="text-xs font-medium text-gray-700">Home Chefs</p>
-            <p className="text-xs text-gray-500">Personal recipes</p>
+
+        <div className="space-y-8">
+          <div className="flex items-start gap-4">
+            <div className="text-3xl">👨‍🍳</div>
+            <div>
+              <p className="font-semibold text-gray-900">Home Chefs</p>
+              <p className="text-sm text-gray-500">Authentic personal recipes from local home kitchens.</p>
+            </div>
           </div>
-          <div className="text-center">
-            <div className="text-2xl mb-1">🏪</div>
-            <p className="text-xs font-medium text-gray-700">Restaurants</p>
-            <p className="text-xs text-gray-500">Professional kitchens</p>
+
+          <div className="flex items-start gap-4">
+            <div className="text-3xl">🏪</div>
+            <div>
+              <p className="font-semibold text-gray-900">Restaurants</p>
+              <p className="text-sm text-gray-500">Favorite professional kitchens in your neighborhood.</p>
+            </div>
           </div>
-          <div className="text-center">
-            <div className="text-2xl mb-1">⭐</div>
-            <p className="text-xs font-medium text-gray-700">Top Rated</p>
-            <p className="text-xs text-gray-500">Community favorites</p>
+
+          <div className="flex items-start gap-4">
+            <div className="text-3xl">⭐</div>
+            <div>
+              <p className="font-semibold text-gray-900">Top Rated</p>
+              <p className="text-sm text-gray-500">Most loved dishes voted by the local community.</p>
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-12 p-4 bg-white rounded-2xl border border-gray-100 shadow-sm">
+          <p className="text-sm font-medium text-gray-600 mb-2">Popular Tags</p>
+          <div className="flex flex-wrap gap-2">
+            {['Spicy', 'Vegan', 'Dessert', 'Healthy', 'Italian'].map(tag => (
+              <span key={tag} className="px-3 py-1 bg-gray-50 text-gray-500 text-xs rounded-full border border-gray-100">
+                #{tag}
+              </span>
+            ))}
           </div>
         </div>
       </motion.div>

@@ -53,7 +53,7 @@ export default function MessagesPage() {
   );
 
   return (
-    <div className="flex flex-col h-full bg-white">
+    <div className="flex flex-col h-full bg-white max-w-2xl mx-auto border-x border-gray-100">
       {/* Header */}
       <div className="border-b border-gray-200 p-4">
         <h1 className="text-2xl font-bold text-gray-900 mb-4">Messages</h1>
@@ -112,29 +112,26 @@ export default function MessagesPage() {
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center justify-between mb-1">
                     <h3
-                      className={`font-${
-                        conv.unread ? 'bold' : 'semibold'
-                      } text-gray-900 text-sm`}
+                      className={`font-${conv.unread ? 'bold' : 'semibold'
+                        } text-gray-900 text-sm`}
                     >
                       {conv.name}
                     </h3>
                     <span
-                      className={`text-xs ${
-                        conv.unread
+                      className={`text-xs ${conv.unread
                           ? 'text-fasteat-red font-semibold'
                           : 'text-gray-500'
-                      }`}
+                        }`}
                     >
                       {conv.timestamp}
                     </span>
                   </div>
 
                   <p
-                    className={`text-sm truncate ${
-                      conv.unread
+                    className={`text-sm truncate ${conv.unread
                         ? 'text-gray-900 font-medium'
                         : 'text-gray-600'
-                    }`}
+                      }`}
                   >
                     {conv.lastMessage}
                   </p>

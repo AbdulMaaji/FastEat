@@ -29,7 +29,7 @@ export default function ProfilePage() {
   const [isEditing, setIsEditing] = React.useState(false);
 
   return (
-    <div className="flex flex-col h-full bg-white">
+    <div className="flex flex-col h-full bg-white max-w-2xl mx-auto border-x border-gray-100 min-h-screen">
       {/* Header Background */}
       <motion.div
         className="h-24 bg-gradient-to-r from-fasteat-red to-red-500"

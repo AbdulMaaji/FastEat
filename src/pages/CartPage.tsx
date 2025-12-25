@@ -48,7 +48,7 @@ export default function CartPage() {
   };
 
   return (
-    <div className="flex flex-col h-full bg-white">
+    <div className="flex flex-col h-full bg-white max-w-2xl mx-auto border-x border-gray-100">
       {/* Header */}
       <div className="border-b border-gray-200 p-4">
         <h1 className="text-2xl font-bold text-gray-900">Shopping Cart</h1>

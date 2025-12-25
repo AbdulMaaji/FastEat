@@ -155,25 +155,25 @@ export default function FeedPage() {
       prevData.map((post) =>
         post.id === postId
           ? {
-              ...post,
-              reviews: [
-                ...post.reviews,
-                {
-                  id: `r${Date.now()}`,
-                  author: 'Current User',
-                  avatar:
-                    'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=40&h=40&fit=crop',
-                  rating,
-                  text,
-                  timestamp: 'just now',
-                  replies: [],
-                },
-              ],
-              totalReviews: post.totalReviews + 1,
-              averageRating:
-                (post.averageRating * post.totalReviews + rating) /
-                (post.totalReviews + 1),
-            }
+            ...post,
+            reviews: [
+              ...post.reviews,
+              {
+                id: `r${Date.now()}`,
+                author: 'Current User',
+                avatar:
+                  'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=40&h=40&fit=crop',
+                rating,
+                text,
+                timestamp: 'just now',
+                replies: [],
+              },
+            ],
+            totalReviews: post.totalReviews + 1,
+            averageRating:
+              (post.averageRating * post.totalReviews + rating) /
+              (post.totalReviews + 1),
+          }
           : post
       )
     );
@@ -188,26 +188,26 @@ export default function FeedPage() {
       prevData.map((post) =>
         post.id === postId
           ? {
-              ...post,
-              reviews: post.reviews.map((review) =>
-                review.id === reviewId
-                  ? {
-                      ...review,
-                      replies: [
-                        ...review.replies,
-                        {
-                          id: `rep${Date.now()}`,
-                          author: 'Current User',
-                          avatar:
-                            'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=40&h=40&fit=crop',
-                          text,
-                          timestamp: 'just now',
-                        },
-                      ],
-                    }
-                  : review
-              ),
-            }
+            ...post,
+            reviews: post.reviews.map((review) =>
+              review.id === reviewId
+                ? {
+                  ...review,
+                  replies: [
+                    ...review.replies,
+                    {
+                      id: `rep${Date.now()}`,
+                      author: 'Current User',
+                      avatar:
+                        'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=40&h=40&fit=crop',
+                      text,
+                      timestamp: 'just now',
+                    },
+                  ],
+                }
+                : review
+            ),
+          }
           : post
       )
     );
@@ -219,7 +219,7 @@ export default function FeedPage() {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        className="divide-y divide-gray-200"
+        className="divide-y divide-gray-200 max-w-2xl mx-auto"
       >
         {feedData.map((post) => (
           <FoodPost

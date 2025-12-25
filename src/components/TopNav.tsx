@@ -3,7 +3,7 @@ import { Bell, Star } from 'lucide-react';
 
 export default function TopNav() {
   return (
-    <nav className="sticky top-0 bg-white border-b border-gray-200 z-30">
+    <nav className="sticky top-0 bg-white border-b border-gray-200 z-30 md:hidden">
       <div className="flex items-center justify-between px-4 py-3">
         <div className="flex items-center gap-2">
           <div className="w-8 h-8 bg-fasteat-red rounded-full flex items-center justify-center">
