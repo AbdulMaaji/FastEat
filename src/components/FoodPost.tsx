@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import { Star, MessageCircle } from 'lucide-react';
 import { motion } from 'framer-motion';
 
@@ -21,7 +20,6 @@ interface FoodPostProps {
 }
 
 export default function FoodPost({
-  id,
   chef,
   image,
   title,
@@ -30,7 +28,6 @@ export default function FoodPost({
   totalReviews,
   onReviewClick,
 }: FoodPostProps) {
-  const [liked, setLiked] = useState(false);
 
   const chefTypeColor =
     chef.type === 'home-chef' ? 'bg-home-chef' : 'bg-restaurant';

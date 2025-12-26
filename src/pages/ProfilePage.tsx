@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { LogOut, Settings, Edit2, Star } from 'lucide-react';
+import { LogOut, Settings, Edit2 } from 'lucide-react';
 
 interface UserProfile {
   name: string;

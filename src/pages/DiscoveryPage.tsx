@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import L from 'leaflet';
-import { Utensils, Award, ChefHat } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 // Fix for Leaflet default marker icon
@@ -20,7 +19,6 @@ const CATEGORY_CHIPS = [
   { id: 2, label: '⭐ Top Rated', color: 'bg-yellow-500' },
   { id: 3, label: '👨‍🍳 Home Chefs', color: 'bg-home-chef' },
   { id: 4, label: '🏪 Restaurants', color: 'bg-restaurant' },
-  { id: 5, label: '🌱 Vegan', color: 'bg-green-500' },
 ];
 
 interface MapLocation {
@@ -121,8 +119,8 @@ export default function DiscoveryPage() {
               onClick={() => handleCategoryClick(chip.id)}
               whileTap={{ scale: 0.95 }}
               className={`px-4 py-2 rounded-full font-medium text-white whitespace-nowrap transition-all ${selectedCategory === chip.id
-                  ? `${chip.color} scale-105 shadow-lg`
-                  : 'bg-gray-700 hover:bg-gray-800'
+                ? `${chip.color} scale-105 shadow-lg`
+                : 'bg-gray-700 hover:bg-gray-800'
                 }`}
             >
               {chip.label}

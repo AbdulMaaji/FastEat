@@ -1,4 +1,3 @@
-import React from 'react';
 import { Bell, Star } from 'lucide-react';
 
 export default function TopNav() {

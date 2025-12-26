@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import FoodPost from '../components/FoodPost';
 import ReviewThread from '../components/ReviewThread';
@@ -243,7 +243,7 @@ export default function FeedPage() {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           onClick={() => setSelectedPostId(null)}
-          className="fixed inset-0 bg-black bg-opacity-50 z-40 flex items-end md:items-center"
+          className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-end md:items-center md:justify-center"
         >
           <motion.div
             initial={{ y: 300, opacity: 0 }}
@@ -251,7 +251,7 @@ export default function FeedPage() {
             exit={{ y: 300, opacity: 0 }}
             transition={{ type: 'spring', damping: 25 }}
             onClick={(e) => e.stopPropagation()}
-            className="w-full md:w-2xl md:mx-auto bg-white rounded-t-3xl md:rounded-lg overflow-hidden"
+            className="w-full md:w-2xl md:max-h-[90vh] bg-white rounded-t-3xl md:rounded-2xl overflow-hidden shadow-2xl"
           >
             {selectedPost && (
               <ReviewThread
